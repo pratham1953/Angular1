@@ -1,0 +1,15 @@
+<div class="container">
+    <!-- Header Box -->
+    <mat-card class="header-box">
+      <h2>User List</h2>
+    </mat-card>
+  
+    <!-- Content Box -->
+    <mat-card class="content-box">
+      <mat-list>
+        <mat-list-item *ngFor="let user of users.slice(0,5)">
+          <strong>ID:</strong> {{ user.id }} – <strong>Name:</strong> {{ user.name }}
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </div>
