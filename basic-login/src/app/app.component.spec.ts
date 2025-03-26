@@ -29,4 +29,5 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('router-outlet')).toBeTruthy();// router-outlet exists
   });
+  
 });

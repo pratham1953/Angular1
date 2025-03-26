@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+
 describe('UserListComponent', () => {
   let component: UserListComponent;
   let fixture: ComponentFixture<UserListComponent>;
@@ -40,4 +41,10 @@ describe('UserListComponent', () => {
  expect(userElemet[0].nativeElement.textContent).toContain('pratham');
  expect(userElemet[1].nativeElement.textContent).toContain('rolex');
   });
+  it('should unsubscribe on destroy',()=>{
+    const mockSubscription=jasmine.createSpyObj('Subscription',['unsubscribe']);
+   component['userSubscription']=mockSubscription;
+   component.ngOnDestroy();
+   expect(mockSubscription.unsubscribe).toHaveBeenCalled();
+  })
 });
